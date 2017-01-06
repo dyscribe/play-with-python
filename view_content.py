@@ -1,15 +1,16 @@
-# Views the current content of a database table
+# Executing an SQL query that displays data from a local MySQL test-database
 
 # Importing Libs
 import MySQLdb
 
-# Open database connection
+# Connect to a local MySQL database
+# Don't get too excited, these are just test credentials
 db = MySQLdb.connect("localhost","python_app","py99","hyperion" )
 
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
-# Prepare SQL query to INSERT a record into the database.
+# Prepare SQL query to SELECT data from the test-table
 sql = "SELECT * FROM pythonApp;"
 
 try:
@@ -27,11 +28,5 @@ try:
 except:
     print "Error: did not work."
 
-# execute SQL query using execute() method.
-# data = cursor.execute("SELECT * FROM pythonApp;")
-
-# Fetch a single row using fetchone() method.
-#print "Current Table Contents are : %s " % data
-
-# disconnect from server
+# disconnect from the database
 db.close()
